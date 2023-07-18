@@ -4,9 +4,8 @@
 import React from 'react';
 import { useState } from 'react';
 import SweetPagination from "sweetpagination";
-
-import { FaCartPlus } from 'react-icons/fa';
-import { AiFillHeart, AiOutlineShareAlt } from 'react-icons/ai';
+import {  AiOutlineShareAlt } from 'react-icons/ai';
+import {  RiHeartAddFill } from 'react-icons/ri';
 import { BiExpand } from 'react-icons/bi';
 
 function Ekartdisplay(props) {
@@ -17,21 +16,39 @@ function Ekartdisplay(props) {
     const [count, setcount] = useState([])
     const [Categorieitem, setCategorieitem] = useState();
     const [CartItems] = useState([]);
+    const [Wishlistcount] = useState([])
+    const [WishlistItems] = useState([]);
 
 
-    const updateButton = async (e) => {
-
+    const Addtocart = async (e) => {
         var arr = products.filter(products => products.id === e)
         arr.qty = 1
         var Cartvar = CartItems
         Cartvar.push(arr)
+        Cartvar = checkIfDuplicateExists(Cartvar)
 
         var items = cartcount
         items.push(parseInt(e))
         items = checkIfDuplicateExists(items)
 
-        props.changecount(items.length)
-        props.cartelements(CartItems)
+        props.changecartcount(items.length)
+        props.cartelements(Cartvar)
+       
+    }
+
+    const Addtowhislist = async (e) => {
+
+        var arr = products.filter(products => products.id === e)
+        arr.qty = 1
+        var Cartvar = WishlistItems
+        Cartvar.push(arr)
+
+        var items = Wishlistcount
+        items.push(parseInt(e))
+        items = checkIfDuplicateExists(items)
+
+        props.changewhishlistcount(items.length)
+        props.wishlistelements(WishlistItems)
 
     }
 
@@ -72,7 +89,7 @@ function Ekartdisplay(props) {
                         <div className="text-price">RS.{val.price}
                             {'  '}<span className="text-stocks">stock   <span className="stock-count"><strong>"{val.stock}"</strong></span></span>
                         </div><br></br>
-                        <button className="btn btn-light" disabled={ cartcount.indexOf(val.id) >= 0 }  onClick={ () => updateButton(val.id)}>ADD TO CART</button>
+                        <button className="btn btn-light" disabled={ cartcount.indexOf(val.id) >= 0 }  onClick={ () => Addtocart(val.id)}>ADD TO CART</button>
                     </div>
                 </div>
             </div> */}
@@ -84,16 +101,16 @@ function Ekartdisplay(props) {
                                                 <span class="discount">{val.discountPercentage}%</span>
                                                 {/* <span class="new">{val.discountPercentage}%</span> */}
                                                 <ul>
-                                                    <li><a href="#"><AiOutlineShareAlt /></a></li>
-                                                    <li><a href="#"><AiFillHeart /></a></li>
-                                                    <li><a href="#"><BiExpand /></a></li>
+                                                    <li><a ><AiOutlineShareAlt /></a></li>
+                                                    <li><a onClick={() => Addtowhislist(val.id)}><RiHeartAddFill /></a></li>
+                                                    <li><a ><BiExpand /></a></li>
                                                 </ul>
                                             </div>
                                             <div class="part-2">
                                                 <h3 class="product-title">{val.title}</h3>
                                                 <h4 class="product-price">RS.{val.price}</h4>
                                                 <h4 class=" product-stock">Stock:{val.stock}</h4>
-                                                <button className="btn btn-light" disabled={cartcount.indexOf(val.id) >= 0} onClick={() => updateButton(val.id)}>ADD TO CART</button>
+                                                <button className="btn btn-light" disabled={cartcount.indexOf(val.id) >= 0} onClick={() => Addtocart(val.id)}>ADD TO CART</button>
                                             </div>
                                         </div>
                                     </div>

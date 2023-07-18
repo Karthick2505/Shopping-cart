@@ -2,23 +2,26 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { HiShoppingCart, CgProfile } from 'react-icons/hi'
-import { AiOutlineUser } from 'react-icons/ai'
+import { HiShoppingCart } from 'react-icons/hi';
+import { AiOutlineUser ,AiFillShopping} from 'react-icons/ai';
+
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Ekartdisplay from "./component/Ekartdisplay"
 import AddToCart from './component/Addtocart';
 import "./Ekart.css";
 import SignUp from "./component/ContactForm/SignUp";
 import ContactForm from './component/ContactForm/Login'
+import Addtowhislist from './component/Addtowishlist';
 
 
 function Ekartmain() {
   const [value, setvalue] = useState("")
   const [content, setcontent] = useState([])
   const [categories, setcategories] = useState([])
-  const [finalcount, setfinalcount] = useState()
+  const [cartcount, setcartcount] = useState()
   const [cartelement, setcartelement] = useState([])
-  const [sticky,setSticky]=useState();
+  const [whishlistcount, setwhishlistcount] = useState()
+  const [wishlistelement, setwishlistelement] = useState([])
 
 
   useEffect(() => {
@@ -48,8 +51,11 @@ function Ekartmain() {
     const search = await axios.get(urls)
     setcontent(search.data.products)
   }
-  const changecount = async (count) => {
-    setfinalcount(count)
+  const changecartcount = async (count) => {
+    setcartcount(count)
+  }
+  const changewhishlistcount = async (count) => {
+    setwhishlistcount(count)
   }
 
 
@@ -62,9 +68,14 @@ function Ekartmain() {
     setvalue(e.target.value)
   }
 
+  
   const cartelements = async (CartItems) => {
+    
     setcartelement(CartItems)
 
+  }
+  const wishlistelements = async (whishItems) => {
+    setwishlistelement(whishItems)
   }
 
 
@@ -87,7 +98,8 @@ function Ekartmain() {
               <form class="search" role="search" onSubmit={submit}>
                 <input value={value} type="text" placeholder="Search" onChange={changeinInput} />
               </form>
-              <Link to="/cart"><HiShoppingCart color='white' size={35} /><span className="badge badge-warning float-right " color='black'>{finalcount}</span></Link>
+              <Link to="/cart"><HiShoppingCart color='white' size={35} /><span className="badge badge-warning float-right " color='black'>{cartcount}</span></Link>
+              <Link to="/wishlist"><AiFillShopping color='white' size={35} /><span className="badge badge-warning float-right " color='black'>{whishlistcount}</span></Link>
               <a href="#profile" className='profile'>
                 <AiOutlineUser color='white' size={35} />
               </a>
@@ -96,8 +108,9 @@ function Ekartmain() {
           </div>
         </div>
         <Routes >
-          <Route exact path='/' element={<Ekartdisplay changecount={changecount} changecategorie={changecategorie} cartelements={cartelements} Content={content} categories={categories} />}></Route>
-          <Route exact path='/cart' element={< AddToCart cartUpdate={changecount} cartelement={cartelement} />}></Route>
+          <Route exact path='/' element={<Ekartdisplay Content={content} categories={categories} changecategorie={changecategorie} cartelements={cartelements} changecartcount={changecartcount} wishlistelements={wishlistelements} changewhishlistcount={changewhishlistcount}/>}></Route>
+          <Route exact path='/cart' element={< AddToCart changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
+          <Route exact path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route exact path='/signup' element={<SignUp/>}></Route>
           <Route exact path='/login' element={<ContactForm/>}></Route>
         

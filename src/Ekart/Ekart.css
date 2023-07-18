@@ -116,9 +116,12 @@
   display: flex;
 }
 
-.ntg {
-  height: 100px;
-  margin-top: 200px;
+.text-center img{
+  opacity: 50%;
+  height: 300px;
+}
+.text-center h1{
+  color: #14121272;
 }
 
 .sidebar {
@@ -517,18 +520,16 @@ label {
   min-height: 50px;
   color: #a0a0a0;
 }
-
 .product .product-removal .remove-product {
   border: 0;
   padding: 8px 15px;
-  background-color: #c66;
+  background-color: rgb(252, 5, 5);
   color: #fff;
   font-size: 12px;
   border-radius: 3px;
 }
-
 .product .product-removal .remove-product:hover {
-  background-color: #a44;
+  background-color: rgb(152, 47, 47);
 }
 .product .product-quantity button {
   background-color: #2974f1;
@@ -542,7 +543,6 @@ label {
   border: 2px solid #2974f1;
   
 }
-
 /* Totals section */
 .totals .totals-item {
   float: right;

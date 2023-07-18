@@ -25,8 +25,11 @@ function AddToCart(props) {
         var elements = content
         elements = elements.filter(elements => elements[0].id !== e)
         setcontent(elements)
-        props.cartUpdate(elements.length);
         updateValues();
+
+        props.cartelements(elements)
+        props.changecartcount(elements.length);
+        
     }
 
     const increment = async (e) => {
@@ -67,6 +70,7 @@ function AddToCart(props) {
 
 
     return (
+
         <div className='container'>
             {/* <div className='row'>
                 <h1>Shopping Cart</h1>
@@ -132,72 +136,82 @@ function AddToCart(props) {
                         <p className="mb-0">You have {content.length} items in your cart</p>
                     </div>
                 </div>
-                <div className='row '>
-                    <div class="column-labels">
-                        <label class="product-image col-2">Image</label>
-                        <label class="product-details col-3">Product</label>
-                        <label class="product-price col-2">Price</label>
-                        <label class="product-quantity col-2">Quantity</label>
-                        <label class="product-removal col-2">Remove</label>
-                        <label class="product-line-price col-1">Total</label>
-                    </div>
-                </div>
-
-                {
-                    content.map((val) => {
-                        return (
-                            <div className='row '>
-                                <div class="product">
-                                    <div class="product-image col-2">
-                                        <img src={val[0].thumbnail} />
-                                    </div>
-                                    <div class="product-details col-3">
-                                        <div class="product-title">{val[0].title}</div>
-                                        <p class="product-description">{val[0].description}</p>
-                                    </div>
-                                    <div class="product-price col-2">RS:{val[0].price}</div>
-                                    <div class="product-quantity col-2">
-                                        <h3>{val.qty}</h3>
-                                        <div className='d-flex' >
-                                            <button class="btn" onClick={() => increment(val[0].id)}><AiFillPlusCircle /></button>
-                                            <button class="btn" disabled={val.qty == 1 && true} onClick={() => decrement(val[0].id)}><AiFillMinusCircle /></button>
+                {content.length > 0
+                    ?
+                    <div>
+                        <div className='row '>
+                            <div class="column-labels">
+                                <label class="product-image col-2">Image</label>
+                                <label class="product-details col-3">Product</label>
+                                <label class="product-price col-2">Price</label>
+                                <label class="product-quantity col-2">Quantity</label>
+                                <label class="product-removal col-2">Remove</label>
+                                <label class="product-line-price col-1">Total</label>
+                            </div>
+                        </div>
+                        {
+                            content.map((val) => {
+                                return (
+                                    <div className='row '>
+                                        <div class="product">
+                                            <div class="product-image col-2">
+                                                <img src={val[0].thumbnail} />
+                                            </div>
+                                            <div class="product-details col-3">
+                                                <div class="product-title">{val[0].title}</div>
+                                                <p class="product-description">{val[0].description}</p>
+                                            </div>
+                                            <div class="product-price col-2">RS:{val[0].price}</div>
+                                            <div class="product-quantity col-2">
+                                                <h3>{val.qty}</h3>
+                                                <div className='d-flex' >
+                                                    <button class="btn" onClick={() => increment(val[0].id)}><AiFillPlusCircle /></button>
+                                                    <button class="btn" disabled={val.qty == 1 && true} onClick={() => decrement(val[0].id)}><AiFillMinusCircle /></button>
+                                                </div>
+                                            </div>
+                                            <div class="product-removal col-2">
+                                                <button class="remove-product" onClick={() => remove(val[0].id)}>
+                                                    Remove
+                                                </button>
+                                            </div>
+                                            <div class="product-line-price col-1">{val[0].price * val.qty}</div>
                                         </div>
                                     </div>
-                                    <div class="product-removal col-2">
-                                        <button class="remove-product" onClick={() => remove(val[0].id)}>
-                                            Remove
-                                        </button>
-                                    </div>
-                                    <div class="product-line-price col-1">{val[0].price * val.qty}</div>
-                                </div>
+                                )
+                            })}
+
+                        <div class="totals">
+                            <div class="totals-item">
+                                <label>Total products</label>
+                                <div class="totals-value" id="cart-subtotal">{totalMaster.total_product}</div>
                             </div>
-                        )
-                    })}
+                            <div class="totals-item">
+                                <label>Subtotal</label>
+                                <div class="totals-value" id="cart-subtotal">{totalMaster.total_price}</div>
+                            </div>
+                            <div class="totals-item">
+                                <label>Tax (5%)</label>
+                                <div class="totals-value" id="cart-tax">{(tax = totalMaster.total_price * 0.05).toFixed(2)}</div>
+                            </div>
+                            <div class="totals-item">
+                                <label>Shipping</label>
+                                <div class="totals-value" id="cart-shipping">{(shipping = totalMaster.total_product * 0.25).toFixed(2)}</div>
+                            </div>
+                            <div class="totals-item totals-item-total">
+                                <label>Grand Total</label>
+                                <div class="totals-value" id="cart-total">{totalMaster.total_price + tax + shipping}</div>
+                            </div>
+                        </div>
+                        <button class="checkout">Checkout</button>
+                    </div>
+                    : 
+                    <div class="text-center">
+                        <img src='https://cdni.iconscout.com/illustration/free/thumb/free-empty-cart-4085814-3385483.png'/>
+                        <h1>Your cart is empty</h1>
+                    </div>
+                }
 
-                <div class="totals">
-                    <div class="totals-item">
-                        <label>Total products</label>
-                        <div class="totals-value" id="cart-subtotal">{totalMaster.total_product}</div>
-                    </div>
-                    <div class="totals-item">
-                        <label>Subtotal</label>
-                        <div class="totals-value" id="cart-subtotal">{totalMaster.total_price}</div>
-                    </div>
-                    <div class="totals-item">
-                        <label>Tax (5%)</label>
-                        <div class="totals-value" id="cart-tax">{(tax = totalMaster.total_price * 0.05).toFixed(2)}</div>
-                    </div>
-                    <div class="totals-item">
-                        <label>Shipping</label>
-                        <div class="totals-value" id="cart-shipping">{(shipping = totalMaster.total_product * 0.25).toFixed(2)}</div>
-                    </div>
-                    <div class="totals-item totals-item-total">
-                        <label>Grand Total</label>
-                        <div class="totals-value" id="cart-total">{totalMaster.total_price + tax + shipping}</div>
-                    </div>
-                </div>
 
-                <button class="checkout">Checkout</button>
 
             </div>
         </div>
