@@ -7,28 +7,24 @@ function Addtowhislist(props) {
 
     var contents = props.wishlistelement
     var CartItems = props.cartelement
-    
+
     const [content, setcontent] = useState(contents)
     const [count, setcount] = useState([]);
 
     useEffect(() => {
-        
+
     }, [content]);
 
-   
+
     const Addtocart = async (e) => {
-        
+
         var arr = content.filter(content => content[0].id === e)
         var arr2 = CartItems.filter(content => content[0].id === e)
         arr.qty = 1
         var Cartvar = CartItems
-        console.log(arr2)
-       if(arr2 === []){
+        if(arr2.length == 0){
             Cartvar.push(arr[0])
-       }
-       
-        
-             
+        }
         
         props.changecartcount(CartItems.length)
         props.cartelements(CartItems)
@@ -43,7 +39,7 @@ function Addtowhislist(props) {
 
         props.wishlistelements(elements)
         props.changewhishlistcount(elements.length);
-        
+
     }
 
     return (
@@ -74,7 +70,7 @@ function Addtowhislist(props) {
                                                 <h3 class="product-title">{val[0].title}</h3>
                                                 <h4 class="product-price">RS.{val[0].price}</h4>
                                                 <h4 class=" product-stock">Stock:{val[0].stock}</h4>
-                                                <button className="btn btn-light"onClick={() => Addtocart(val[0].id)}>ADD TO CART</button>
+                                                <button className="btn btn-light" onClick={() => Addtocart(val[0].id)}>ADD TO CART</button>
                                             </div>
                                         </div>
                                     </div>
@@ -87,12 +83,12 @@ function Addtowhislist(props) {
                             navigation={true}
                         />
                     </div>
-                    : 
+                    :
                     <div className='text-center '>
-                        <img src='https://sarienasskin.com/assets/img/empty_wishlist.png'/>
+                        <img src='https://sarienasskin.com/assets/img/empty_wishlist.png' />
                         <h1 >Your wishlist is empty</h1>
                     </div>
-                    
+
                 }
 
 
