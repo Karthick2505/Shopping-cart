@@ -6,12 +6,10 @@ import SweetPagination from "sweetpagination";
 function Addtowhislist(props) {
 
     var contents = props.wishlistelement
+    var CartItems = props.cartelement
     
     const [content, setcontent] = useState(contents)
-    const [count, setcount] = useState([])
-
-    const [cartcount] = useState([]);
-    const [CartItems] = useState([]);
+    const [count, setcount] = useState([]);
 
     useEffect(() => {
         
@@ -21,10 +19,18 @@ function Addtowhislist(props) {
     const Addtocart = async (e) => {
         
         var arr = content.filter(content => content[0].id === e)
+        var arr2 = CartItems.filter(content => content[0].id === e)
         arr.qty = 1
         var Cartvar = CartItems
-        Cartvar.push(arr[0])
-
+        console.log(arr2)
+       if(arr2 === []){
+            Cartvar.push(arr[0])
+       }
+       
+        
+             
+        
+        props.changecartcount(CartItems.length)
         props.cartelements(CartItems)
         remove(e)
 
