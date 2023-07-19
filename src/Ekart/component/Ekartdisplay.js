@@ -14,7 +14,6 @@ function Ekartdisplay(props) {
 
     const [cartcount] = useState([])
     const [count, setcount] = useState([])
-    const [Categorieitem, setCategorieitem] = useState();
     const [CartItems] = useState([]);
     const [Wishlistcount] = useState([])
     const [WishlistItems] = useState([]);
@@ -52,21 +51,20 @@ function Ekartdisplay(props) {
 
     }
 
-    const categorielink = async (cat) => {
-        setCategorieitem(cat)
-        props.changecategorie(Categorieitem)
-    }
+    
 
     function checkIfDuplicateExists(arr) {
         return arr.filter((item, index) => arr.indexOf(item) === index);
     }
-
+    
     return (
         <div className='mt'>
             <div className="sidebar gt">
+                <h1>Catageories</h1>
+                <a className="active" onClick={() => props.changecategorie(' ')}>All</a>
                 {
                     categories.map((cat) => {
-                        return (<><a className="active" value={cat} onClick={() => categorielink(cat)}>{cat}</a></>)
+                        return (<><a className="active" onClick={() => props.changecategorie(cat)}>{cat}</a></>)
                     })
 
                 }
@@ -80,8 +78,8 @@ function Ekartdisplay(props) {
                         {
                             count.map((val) => {
                                 return (
-                                <>
-                                    {/* 
+                                    <>
+                                        {/* 
                                         <div className="col-sm-4">
                                             <div className="card my-3 rounded-bottom">
                                                 <img className="card-img-top height" src={val.thumbnail}></img>
@@ -95,28 +93,28 @@ function Ekartdisplay(props) {
                                                 </div>
                                             </div>
                                         </div> */}
-                                    {/* Single Product */}
-                                    <div class=" col-lg-4 col-xl-3 ">
-                                        <div id="product-2" class="single-product" >
-                                            <div class="part-1" >
-                                                <img src={val.thumbnail}></img>
-                                                <span class="discount">{val.discountPercentage}%</span>
-                                                {/* <span class="new">{val.discountPercentage}%</span> */}
-                                                <ul>
-                                                    <li><a ><AiOutlineShareAlt /></a></li>
-                                                    <li><a onClick={() => Addtowhislist(val.id)}><RiHeartAddFill /></a></li>
-                                                    <li><a ><BiExpand /></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="part-2">
-                                                <h3 class="product-title">{val.title}</h3>
-                                                <h4 class="product-price">RS.{val.price}</h4>
-                                                <h4 class=" product-stock">Stock:{val.stock}</h4>
-                                                <button className="btn btn-light" disabled={cartcount.indexOf(val.id) >= 0} onClick={() => Addtocart(val.id)}>ADD TO CART</button>
+                                        {/* Single Product */}
+                                        <div class=" col-lg-4 col-xl-3 ">
+                                            <div id="product-2" class="single-product" >
+                                                <div class="part-1" >
+                                                    <img src={val.thumbnail}></img>
+                                                    <span class="discount">{val.discountPercentage}%</span>
+                                                    {/* <span class="new">{val.discountPercentage}%</span> */}
+                                                    <ul>
+                                                        <li><a ><AiOutlineShareAlt /></a></li>
+                                                        <li><a onClick={() => Addtowhislist(val.id)}><RiHeartAddFill /></a></li>
+                                                        <li><a ><BiExpand /></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="part-2">
+                                                    <h3 class="product-title">{val.title}</h3>
+                                                    <h4 class="product-price">RS.{val.price}</h4>
+                                                    <h4 class=" product-stock">Stock:{val.stock}</h4>
+                                                    <button className="btn btn-light" disabled={cartcount.indexOf(val.id) >= 0} onClick={() => Addtocart(val.id)}>ADD TO CART</button>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </>)
+                                    </>)
                             })}
                         <SweetPagination
                             currentPageData={setcount}
@@ -125,9 +123,12 @@ function Ekartdisplay(props) {
                             navigation={true}
                         />
                     </div>
-                    : <h1 className='text-center ntg'>loading</h1>
+                    :
+                    <div class="text-center mt-4">
+                        
+                        <h1>Loading ......</h1>
+                    </div>
                 }
-
 
             </div>
 

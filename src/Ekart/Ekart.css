@@ -132,6 +132,14 @@
   position: fixed;
   height: 100%;
   overflow: hidden;
+  
+}
+.sidebar h1{
+  margin-top: 10px;
+  text-align: center;
+  font-size: 20px;
+  color: #000000;
+  
 }
 
 .sidebar a {
@@ -314,9 +322,13 @@ a {
   margin-right: 50px;
 }
 
-.profile {
-  margin: 0 50px;
+.profile{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding: 0;
 }
+
 
 
 
@@ -582,4 +594,9 @@ label {
 
 .checkout:hover {
   background-color: #494;
+}
+
+.sweetPagination .paginationUL .pageItem .activeButton {
+  color: #f1f2f6;
+  background-color: #2974f1 !important;
 }
