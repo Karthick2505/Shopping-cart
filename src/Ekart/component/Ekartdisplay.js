@@ -4,8 +4,8 @@
 import React from 'react';
 import { useState } from 'react';
 import SweetPagination from "sweetpagination";
-import {  AiOutlineShareAlt } from 'react-icons/ai';
-import {  RiHeartAddFill } from 'react-icons/ri';
+import { AiOutlineShareAlt } from 'react-icons/ai';
+import { RiHeartAddFill } from 'react-icons/ri';
 import { BiExpand } from 'react-icons/bi';
 
 function Ekartdisplay(props) {
@@ -32,8 +32,8 @@ function Ekartdisplay(props) {
         items = checkIfDuplicateExists(items)
 
         props.changecartcount(items.length)
-        props.cartelements(Cartvar)
-       
+        props.cartelements(CartItems)
+
     }
 
     const Addtowhislist = async (e) => {
@@ -79,20 +79,22 @@ function Ekartdisplay(props) {
 
                         {
                             count.map((val) => {
-                                return (<>
-                                    {/* <div className="col-sm-4">
-                <div className="card my-3 rounded-bottom">
-                    <img className="card-img-top height" src={val.thumbnail}></img>
-                    <div className="discount">%{val.discountPercentage}</div>
-                    <div className="card-body card-color text-center">
-                        <h3 className="title">{val.title}</h3>
-                        <div className="text-price">RS.{val.price}
-                            {'  '}<span className="text-stocks">stock   <span className="stock-count"><strong>"{val.stock}"</strong></span></span>
-                        </div><br></br>
-                        <button className="btn btn-light" disabled={ cartcount.indexOf(val.id) >= 0 }  onClick={ () => Addtocart(val.id)}>ADD TO CART</button>
-                    </div>
-                </div>
-            </div> */}
+                                return (
+                                <>
+                                    {/* 
+                                        <div className="col-sm-4">
+                                            <div className="card my-3 rounded-bottom">
+                                                <img className="card-img-top height" src={val.thumbnail}></img>
+                                                <div className="discount">%{val.discountPercentage}</div>
+                                                <div className="card-body card-color text-center">
+                                                    <h3 className="title">{val.title}</h3>
+                                                    <div className="text-price">RS.{val.price}
+                                                    {'  '}<span className="text-stocks">stock   <span className="stock-count"><strong>"{val.stock}"</strong></span></span>
+                                                    </div><br></br>
+                                                    <button className="btn btn-light" disabled={ cartcount.indexOf(val.id) >= 0 }  onClick={ () => Addtocart(val.id)}>ADD TO CART</button>
+                                                </div>
+                                            </div>
+                                        </div> */}
                                     {/* Single Product */}
                                     <div class=" col-lg-4 col-xl-3 ">
                                         <div id="product-2" class="single-product" >
@@ -123,7 +125,7 @@ function Ekartdisplay(props) {
                             navigation={true}
                         />
                     </div>
-                    : <h1 className='text-center ntg'>Nothing has been matched</h1>
+                    : <h1 className='text-center ntg'>loading</h1>
                 }
 
 

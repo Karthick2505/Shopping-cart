@@ -19,6 +19,7 @@ function Ekartmain() {
   const [content, setcontent] = useState([])
   const [categories, setcategories] = useState([])
   const [cartcount, setcartcount] = useState()
+  
   const [cartelement, setcartelement] = useState([])
   const [whishlistcount, setwhishlistcount] = useState()
   const [wishlistelement, setwishlistelement] = useState([])
@@ -70,9 +71,7 @@ function Ekartmain() {
 
   
   const cartelements = async (CartItems) => {
-    
     setcartelement(CartItems)
-
   }
   const wishlistelements = async (whishItems) => {
     setwishlistelement(whishItems)
@@ -110,7 +109,7 @@ function Ekartmain() {
         <Routes >
           <Route exact path='/' element={<Ekartdisplay Content={content} categories={categories} changecategorie={changecategorie} cartelements={cartelements} changecartcount={changecartcount} wishlistelements={wishlistelements} changewhishlistcount={changewhishlistcount}/>}></Route>
           <Route exact path='/cart' element={< AddToCart changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
-          <Route exact path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
+          <Route exact path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} cartelement={cartelement}  wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route exact path='/signup' element={<SignUp/>}></Route>
           <Route exact path='/login' element={<ContactForm/>}></Route>
         

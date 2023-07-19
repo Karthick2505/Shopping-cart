@@ -6,6 +6,7 @@ import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 function AddToCart(props) {
 
     var contents = props.cartelement
+    
     const [content, setcontent] = useState(contents)
     const [totalMaster, settotalmaster] = useState({ "total_product": 0, "total_price": 0 })
 
@@ -166,7 +167,7 @@ function AddToCart(props) {
                                                 <h3>{val.qty}</h3>
                                                 <div className='d-flex' >
                                                     <button class="btn" onClick={() => increment(val[0].id)}><AiFillPlusCircle /></button>
-                                                    <button class="btn" disabled={val.qty == 1 && true} onClick={() => decrement(val[0].id)}><AiFillMinusCircle /></button>
+                                                    <button class="btn" disabled={val.qty === 1 && true} onClick={() => decrement(val[0].id)}><AiFillMinusCircle /></button>
                                                 </div>
                                             </div>
                                             <div class="product-removal col-2">
@@ -204,7 +205,7 @@ function AddToCart(props) {
                         </div>
                         <button class="checkout">Checkout</button>
                     </div>
-                    : 
+                    :
                     <div class="text-center">
                         <img src='https://cdni.iconscout.com/illustration/free/thumb/free-empty-cart-4085814-3385483.png'/>
                         <h1>Your cart is empty</h1>
