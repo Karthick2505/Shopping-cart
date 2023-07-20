@@ -32,6 +32,7 @@ body {
   flex-direction: column;
   letter-spacing: 1px;
 }
+
 .la-eye-slash{
   background-color: #fff;
 }
@@ -75,6 +76,7 @@ body {
   border-bottom: none;
   -webkit-box-shadow: 0 1px 0 0 #ffffff;
   box-shadow: 0 1px 0 0 #ffffff;
+  margin-right: 10px;
 }
 
 .auth-form__input.focus {
@@ -142,15 +144,16 @@ body {
   border: 1px solid #ccc;
   height: 50px;
   border-radius: 10px;
-  background: transparent;
-  color: #ccc;
+  background: #fff;
+  color: #007bff;
   outline: none;
 }
 
 .auth-form__submit:hover {
-  background: #fff;
+  
+  background: #d5ddff;
   border: 1px solid #fff;
-  color: #232323;
+  color: #008236;
 }
 
 .auth-form__bottom {
@@ -170,6 +173,7 @@ body {
 
 .auth-form h1{
    color: #ffffff;
+   margin-bottom: 20px;
 }
 .name{
    display: flex;

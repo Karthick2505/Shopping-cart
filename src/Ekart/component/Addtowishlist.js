@@ -44,9 +44,7 @@ function Addtowhislist(props) {
 
     return (
         <div className='container'>
-
-
-            <div class="shopping-cart">
+            <div className="shopping-cart">
                 <div className='row'>
                     <h1>WhishList</h1>
                 </div>

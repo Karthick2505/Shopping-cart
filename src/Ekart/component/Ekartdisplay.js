@@ -118,7 +118,7 @@ function Ekartdisplay(props) {
                             })}
                         <SweetPagination
                             currentPageData={setcount}
-                            dataPerPage={10}
+                            dataPerPage={12}
                             getData={products}
                             navigation={true}
                         />
