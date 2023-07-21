@@ -14,7 +14,7 @@ function Userprofile(props) {
         props.wishlistelements([]);
         props.changewhishlistcount(0);
         props.updateloginstatus(false);
-        navigate('/login')
+        navigate('/')
     }
     
     const user = (
@@ -39,7 +39,7 @@ function Userprofile(props) {
                             </div>
                         </div>
                         <div>
-                            <button onClick={logoff}>Log out</button>
+                            <button onClick={logoff} className='logoutbtn'>Log out</button>
                         </div>
                     </div>
                     :
@@ -47,7 +47,6 @@ function Userprofile(props) {
                         {/* <button>Log in</button> */}
                     </div>
                 }
-
             </header>
         </section>);
     return user;

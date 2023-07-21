@@ -73,7 +73,7 @@ function ContactForm(props) {
 
 
     const open = () => {
-        navigate('/')
+        navigate('/signup')
     };
     const contactForm = (
 

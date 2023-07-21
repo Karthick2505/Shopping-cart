@@ -73,7 +73,7 @@ function SignUp(props) {
             arr.push(new person(firstName, lastName, email, password))
             console.log(arr)
             props.updateuserdata(arr)
-            navigate('/login')
+            navigate('/')
         } else {
 
             // 👇️ clear all input values in the form
@@ -118,7 +118,7 @@ function SignUp(props) {
     // }
 
     const open = () => {
-        navigate('/login')
+        navigate('/')
     };
 
     const Signup = (
