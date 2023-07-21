@@ -117,7 +117,7 @@ function Ekartmain() {
           <Route  path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} cartelement={cartelement}  wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route  path='/' element={<SignUp userdata={userdata} updateuserdata={updateuserdata}/>}></Route>
           <Route  path='/login' element={<ContactForm updatelogindetails={updatelogindetails}  loggedin={loggedin} updateloginstatus={updateloginstatus} userdata={userdata}/>}></Route>
-          <Route  path='/user' element={<Userprofile updateloginstatus={updateloginstatus} updatelogindetails={updatelogindetails} logindetails={logindetails} cartcount={cartcount} whishlistcount={whishlistcount}/>}></Route>
+          <Route  path='/user' element={<Userprofile changecartcount={changecartcount}  cartelements={cartelements} changewhishlistcount={changewhishlistcount}wishlistelements={wishlistelements} updateloginstatus={updateloginstatus} updatelogindetails={updatelogindetails} logindetails={logindetails} cartcount={cartcount} whishlistcount={whishlistcount}/>}></Route>
         
         </Routes>
       </div>

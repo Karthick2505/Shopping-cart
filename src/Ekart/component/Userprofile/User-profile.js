@@ -9,16 +9,18 @@ function Userprofile(props) {
     const navigate = useNavigate();
     const logoff = () => {
         props.updatelogindetails([]);
-        props.updateloginstatus(false)
-        console.log(userdetail)
-    }
-    const login = () => {
+        props.cartelements([]);
+        props.changecartcount(0);
+        props.wishlistelements([]);
+        props.changewhishlistcount(0);
+        props.updateloginstatus(false);
         navigate('/login')
     }
+    
     const user = (
         <section class="profile">
             <header class="header">
-                {userdetail === [] ?
+                {userdetail !== [] ?
                     <div class="details">
                         <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=b38c22a46932485790a3f52c61fcbe5a" alt="John Doe" class="profile-pic" />
                         <h1 class="heading">{userdetail.firstname}</h1>
@@ -42,7 +44,7 @@ function Userprofile(props) {
                     </div>
                     :
                     <div>
-                        <button onClick={login}>Log in</button>
+                        {/* <button>Log in</button> */}
                     </div>
                 }
 
