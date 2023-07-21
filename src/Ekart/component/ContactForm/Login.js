@@ -59,13 +59,11 @@ function ContactForm(props) {
         event.preventDefault(); // 👈️ prevent page refresh
         // console.log(` ${email} ${password} `);
         arr.map((val) => {
-            console.log(val.email)
             if (val.email === email && val.password === password) {
                 props.updateloginstatus(true)
+                props.updatelogindetails(val)
             }
-
         })
-        console.log(loggedin)
         if (loggedin===true) {
             navigate('/products')
         } else {
@@ -77,7 +75,7 @@ function ContactForm(props) {
 
 
     const open = () => {
-        window.location.href = "/";
+        navigate('/')
     };
     const contactForm = (
 
@@ -105,7 +103,7 @@ function ContactForm(props) {
                     <button className="auth-form__submit" type="submit">Login</button>
 
                     <div class="auth-form__bottom">
-                        <span>Have no account?</span><a onClick={open}>Create new</a>
+                        <span>Have no account?</span><a onClick={open}>Register</a>
                     </div>
                 </form>
             </div>

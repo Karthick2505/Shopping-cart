@@ -5,6 +5,7 @@ import axios from 'axios'
 
 import { HiShoppingCart } from 'react-icons/hi';
 import { AiOutlineUser ,AiFillShopping} from 'react-icons/ai';
+import { BsFillPersonPlusFill,BsPersonCheckFill} from 'react-icons/bs';
 
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
@@ -14,6 +15,7 @@ import "./Ekart.css";
 import SignUp from "./component/ContactForm/SignUp";
 import ContactForm from './component/ContactForm/Login'
 import Addtowhislist from './component/Addtowishlist';
+import Userprofile from './component/Userprofile/User-profile';
 
 
 function Ekartmain() {
@@ -27,6 +29,7 @@ function Ekartmain() {
   const [wishlistelement, setwishlistelement] = useState([])
   const [userdata,setuserdata]=useState([])
   
+  const [logindetails,setlogindetails] =useState([])
   const [loggedin, setloggedin] = useState(false);
 
 
@@ -80,6 +83,9 @@ function Ekartmain() {
   const updateloginstatus=(data)=>{
     setloggedin(data)
   }
+  const updatelogindetails=(data)=>{
+    setlogindetails(data)
+  }
 
   return (
     <Router>
@@ -92,7 +98,6 @@ function Ekartmain() {
                 <h2>SHOPPING</h2>
               </Link>
             </a>
-        
           </div>
           <div class="nav-end">
             <div class="right-container">
@@ -101,10 +106,8 @@ function Ekartmain() {
               </form>
               <Link to="/cart"><HiShoppingCart  color='white' size={35} /><span className="badge badge-warning float-right " >{cartcount>0 ? cartcount : ''}</span></Link>
               <Link to="/wishlist"><AiFillShopping color='white' size={35} /><span className="badge badge-warning float-right " >{whishlistcount>0 ? whishlistcount : ''}</span></Link>
-             
-                <Link to="/"><button class="btn btn-light profile"><AiOutlineUser  size={25} /></button></Link>
-            
               
+              <Link to={loggedin ? '/user' :'/'}><button class="btn btn-light profileicon">{ loggedin ? <BsPersonCheckFill size={25} />  : <BsFillPersonPlusFill size={25}/>}</button></Link>
             </div>
           </div>
         </div>
@@ -113,7 +116,8 @@ function Ekartmain() {
           <Route  path='/cart' element={< AddToCart changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
           <Route  path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} cartelement={cartelement}  wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route  path='/' element={<SignUp userdata={userdata} updateuserdata={updateuserdata}/>}></Route>
-          <Route  path='/login' element={<ContactForm loggedin={loggedin} updateloginstatus={updateloginstatus} userdata={userdata}/>}></Route>
+          <Route  path='/login' element={<ContactForm updatelogindetails={updatelogindetails}  loggedin={loggedin} updateloginstatus={updateloginstatus} userdata={userdata}/>}></Route>
+          <Route  path='/user' element={<Userprofile logindetails={logindetails} cartcount={cartcount} whishlistcount={whishlistcount}/>}></Route>
         
         </Routes>
       </div>

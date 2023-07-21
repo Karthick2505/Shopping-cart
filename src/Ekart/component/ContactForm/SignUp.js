@@ -118,7 +118,7 @@ function SignUp(props) {
     // }
 
     const open = () => {
-        window.location.href = "/login";
+        navigate('/login')
     };
 
     const Signup = (
