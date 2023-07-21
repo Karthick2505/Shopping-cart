@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 
 function ContactForm(props) {
     const arr = props.userdata;
-    const loggedin = props.loggedin;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -62,15 +61,14 @@ function ContactForm(props) {
             if (val.email === email && val.password === password) {
                 props.updateloginstatus(true)
                 props.updatelogindetails(val)
+                navigate('/products')
             }
         })
-        if (loggedin===true) {
-            navigate('/products')
-        } else {
+        
             // 👇️ clear all input values in the form
             setEmail('');
             setPassword('');
-        }
+        
     };
 
 
