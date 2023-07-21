@@ -4,10 +4,10 @@ import { useNavigate } from 'react-router-dom';
 
 function ContactForm(props) {
     const arr = props.userdata;
+    const loggedin = props.loggedin;
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-    const [loggedin, setloggedin] = useState(false);
 
     useEffect(() => {
         focus()
@@ -58,11 +58,10 @@ function ContactForm(props) {
     const handleSubmit = event => {
         event.preventDefault(); // 👈️ prevent page refresh
         // console.log(` ${email} ${password} `);
-        console.log(arr)
         arr.map((val) => {
             console.log(val.email)
             if (val.email === email && val.password === password) {
-                setloggedin(true)
+                props.updateloginstatus(true)
             }
 
         })
@@ -76,42 +75,9 @@ function ContactForm(props) {
         }
     };
 
-    // function forms() {
-
-    //     document.forms['form-auth'].addEventListener('submit',
-    //         function (e) {
-    //             e.preventDefault();
-
-    //             const answerContainer = this.querySelector('.auth-form__answer');
-    //             const email = this.elements.email.value;
-    //             const password = this.elements.password.value;
-    //             const placeholders = document.querySelectorAll('.auth-form__placeholder');
-    //             console.log(arr)
-    //             arr.map((val) => {
-    //                 if (val[0].email === email && val[0].password === password) {
-    //                     setloggedin(true)
-    //                 }
-
-    //             })
-    //             console.log(loggedin)
-    //             if (loggedin) {
-    //                 navigate('/products')
-    //             } else {
-    //                 placeholders.forEach(
-    //                     function (placeholder) {
-    //                         placeholder.classList.remove('focus');
-    //                     });
-    //                 this.elements.email.value = '';
-    //                 this.elements.password.value = '';
-    //                 answerContainer.innerHTML = '<span class="text-danger">invalid email or password</span>';
-    //             }
-    //         });
-    // }
-
-
 
     const open = () => {
-        window.location.href = "/signup";
+        window.location.href = "/";
     };
     const contactForm = (
 

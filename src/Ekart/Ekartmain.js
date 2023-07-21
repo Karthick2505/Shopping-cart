@@ -26,6 +26,8 @@ function Ekartmain() {
   const [whishlistcount, setwhishlistcount] = useState()
   const [wishlistelement, setwishlistelement] = useState([])
   const [userdata,setuserdata]=useState([])
+  
+  const [loggedin, setloggedin] = useState(false);
 
 
   useEffect(() => {
@@ -75,6 +77,9 @@ function Ekartmain() {
   const updateuserdata=(data)=>{
     setuserdata(data)
   }
+  const updateloginstatus=(data)=>{
+    setloggedin(data)
+  }
 
   return (
     <Router>
@@ -96,8 +101,10 @@ function Ekartmain() {
               </form>
               <Link to="/cart"><HiShoppingCart  color='white' size={35} /><span className="badge badge-warning float-right " >{cartcount>0 ? cartcount : ''}</span></Link>
               <Link to="/wishlist"><AiFillShopping color='white' size={35} /><span className="badge badge-warning float-right " >{whishlistcount>0 ? whishlistcount : ''}</span></Link>
-              <Link to="/"><button class="btn btn-light profile"><AiOutlineUser  size={25} /></button></Link>
-              <Link to="/login"><button class="btn btn-light profile"><AiOutlineUser  size={25} /></button></Link>
+             
+                <Link to="/"><button class="btn btn-light profile"><AiOutlineUser  size={25} /></button></Link>
+            
+              
             </div>
           </div>
         </div>
@@ -106,7 +113,7 @@ function Ekartmain() {
           <Route  path='/cart' element={< AddToCart changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
           <Route  path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} cartelement={cartelement}  wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route  path='/' element={<SignUp userdata={userdata} updateuserdata={updateuserdata}/>}></Route>
-          <Route  path='/login' element={<ContactForm userdata={userdata}/>}></Route>
+          <Route  path='/login' element={<ContactForm loggedin={loggedin} updateloginstatus={updateloginstatus} userdata={userdata}/>}></Route>
         
         </Routes>
       </div>

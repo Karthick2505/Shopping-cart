@@ -150,7 +150,6 @@ body {
 }
 
 .auth-form__submit:hover {
-  
   background: #d5ddff;
   border: 1px solid #fff;
   color: #008236;
@@ -158,17 +157,20 @@ body {
 
 .auth-form__bottom {
   margin-top: 30px;
-  font-size: 12px;
-  color: #ddd;
+  font-size: 15px;
+  color: #ccc;
   text-align: center;
 }
 
-.auth-form__bottom a {
-  color: #007bff;
+.auth-form__bottom  a {
+  margin-left: 10PX;
 }
 
-.auth-form__bottom a:hover {
-  color: #ddd;
+.auth-form__bottom  a:hover {
+  color: #ffffff !important;
+  font-weight: 500;
+  margin-left: 10PX;
+  cursor: grab;
 }
 
 .auth-form h1{
