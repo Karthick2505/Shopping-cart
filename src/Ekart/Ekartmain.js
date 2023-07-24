@@ -112,7 +112,7 @@ function Ekartmain() {
           </div>
         </div>
         <Routes >
-          <Route exact path='/products' element={<Ekartdisplay Content={content} categories={categories} changecategorie={changecategorie} cartelements={cartelements} changecartcount={changecartcount} wishlistelements={wishlistelements} changewhishlistcount={changewhishlistcount}/>}></Route>
+          <Route exact path='/products' element={<Ekartdisplay Content={content} categories={categories} changecategorie={changecategorie} cartelements={cartelements} cartelement={cartelement} changecartcount={changecartcount} wishlistelements={wishlistelements} changewhishlistcount={changewhishlistcount} wishlistelement={wishlistelement}/>}></Route>
           <Route  path='/cart' element={< AddToCart changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
           <Route  path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} cartelement={cartelement}  wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route  path='/signup' element={<SignUp userdata={userdata} updateuserdata={updateuserdata}/>}></Route>

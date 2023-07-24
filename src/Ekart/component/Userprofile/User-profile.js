@@ -18,8 +18,8 @@ function Userprofile(props) {
     }
     
     const user = (
-        <section class="profile">
-            <header class="header">
+        <div class="profile">
+            <div class="header">
                 {userdetail !== [] ?
                     <div class="details">
                         <img src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=b38c22a46932485790a3f52c61fcbe5a" alt="John Doe" class="profile-pic" />
@@ -47,8 +47,8 @@ function Userprofile(props) {
                         {/* <button>Log in</button> */}
                     </div>
                 }
-            </header>
-        </section>);
+            </div>
+        </div>);
     return user;
 }
 export default Userprofile

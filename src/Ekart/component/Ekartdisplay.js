@@ -11,26 +11,23 @@ import { BiExpand } from 'react-icons/bi';
 function Ekartdisplay(props) {
     const products = props.Content
     const categories = props.categories
+    var CartItems = props.cartelement
+    var wishlistitem=props.wishlistelement
 
-    const [cartcount] = useState([])
-    const [count, setcount] = useState([])
-    const [CartItems] = useState([]);
-    const [Wishlistcount] = useState([])
-    const [WishlistItems] = useState([]);
+    const [count, setcount] = useState([]);
+    
 
 
     const Addtocart = async (e) => {
         var arr = products.filter(products => products.id === e)
+        var arr2 = CartItems.filter(content => content[0].id === e)
         arr.qty = 1
         var Cartvar = CartItems
-        Cartvar.push(arr)
-        Cartvar = checkIfDuplicateExists(Cartvar)
+        if(arr2.length == 0){
+            Cartvar.push(arr)
+        }
 
-        var items = cartcount
-        items.push(parseInt(e))
-        items = checkIfDuplicateExists(items)
-
-        props.changecartcount(items.length)
+        props.changecartcount(CartItems.length)
         props.cartelements(CartItems)
 
     }
@@ -38,16 +35,15 @@ function Ekartdisplay(props) {
     const Addtowhislist = async (e) => {
 
         var arr = products.filter(products => products.id === e)
+        var arr2 = wishlistitem.filter(content => content[0].id === e)
         arr.qty = 1
-        var Cartvar = WishlistItems
-        Cartvar.push(arr)
+        var Cartvar = wishlistitem
+        if(arr2.length == 0){
+            Cartvar.push(arr)
+        }
 
-        var items = Wishlistcount
-        items.push(parseInt(e))
-        items = checkIfDuplicateExists(items)
-
-        props.changewhishlistcount(items.length)
-        props.wishlistelements(WishlistItems)
+        props.changewhishlistcount(wishlistitem.length)
+        props.wishlistelements(wishlistitem)
 
     }
 
@@ -110,7 +106,7 @@ function Ekartdisplay(props) {
                                                     <h3 class="product-title">{val.title}</h3>
                                                     <h4 class="product-price">RS.{val.price}</h4>
                                                     <h4 class=" product-stock">Stock:{val.stock}</h4>
-                                                    <button className="btn btn-light" disabled={cartcount.indexOf(val.id) >= 0} onClick={() => Addtocart(val.id)}>ADD TO CART</button>
+                                                    <button className="btn btn-light"  onClick={() => Addtocart(val.id)}>ADD TO CART</button>
                                                 </div>
                                             </div>
                                         </div>

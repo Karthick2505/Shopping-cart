@@ -1,9 +1,9 @@
-.profile{
-    width: 100% !important;
-    
+.profile {
+  width: 100% !important;
 }
+
 .header {
-    background: linear-gradient(to right, #ec2F4B, #009FFF);
+  background: linear-gradient(to right, #ec2F4B, #009FFF);
   color: white;
   display: flex;
   align-items: center;
@@ -39,22 +39,21 @@
 }
 
 .logoutbtn {
-    font-size: inherit;
-    letter-spacing:1px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    height: 50px;
-    border-radius: 10px;
-    background: #7b0202;
-    color: #f8f8f8;
-    outline: none;
-    padding: 10px 30px;
-    margin-top: 20px;
-  }
-  
-  .logoutbtn:hover {
-    background: #de0000c4;
-    border: 1px solid #fff;
-    color: #ffffff;
-  }
-  
+  font-size: inherit;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  height: 50px;
+  border-radius: 10px;
+  background: #7b0202;
+  color: #f8f8f8;
+  outline: none;
+  padding: 10px 30px;
+  margin-top: 20px;
+}
+
+.logoutbtn:hover {
+  background: #de0000c4;
+  border: 1px solid #fff;
+  color: #ffffff;
+}
