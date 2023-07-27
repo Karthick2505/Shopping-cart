@@ -4,9 +4,7 @@ import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
 
 
 function AddToCart(props) {
-
-    var contents = props.cartelement
-    
+    var contents = props.cartelement;
     const [content, setcontent] = useState(contents)
     const [totalMaster, settotalmaster] = useState({ "total_product": 0, "total_price": 0 })
 
@@ -17,9 +15,6 @@ function AddToCart(props) {
     var shipping = 0;
 
     useEffect(() => {
-        totalProduct = 0;
-        totalPrice = 0;
-        updateValues();
     }, [content]);
 
     const remove = async (e) => {
@@ -59,7 +54,7 @@ function AddToCart(props) {
     }
 
     const updateValues = () => {
-
+    // eslint-disable-next-line 
         content.map((value) => {
             var price = value[0].price;
             totalProduct += value.qty;

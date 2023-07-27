@@ -159,11 +159,11 @@
   text-align: center;
 }
 
-.auth-form__bottom  a {
+.auth-form__bottom  p {
   margin-left: 10PX;
 }
 
-.auth-form__bottom  a:hover {
+.auth-form__bottom  p:hover {
   color: #ffffff !important;
   font-weight: 500;
   margin-left: 10PX;

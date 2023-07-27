@@ -164,7 +164,7 @@ function SignUp(props) {
                     <button className="auth-form__submit" type="submit">Get started</button>
 
                     <div className="auth-form__bottom">
-                        <span>Already have an account.</span><a onClick={open}>Login</a>
+                        <span>Already have an account.</span><p onClick={open}>Login</p>
                     </div>
                 </form>
 

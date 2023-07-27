@@ -101,7 +101,7 @@ function ContactForm(props) {
                     <button className="auth-form__submit" type="submit">Login</button>
 
                     <div class="auth-form__bottom">
-                        <span>Have no account?</span><a onClick={open}>Register</a>
+                        <span>Have no account?</span><p onClick={open}>Register</p>
                     </div>
                 </form>
             </div>

@@ -20,7 +20,7 @@ function Ekartdisplay(props) {
     var arr2 = CartItems.filter((content) => content[0].id === e);
     arr.qty = 1;
     var Cartvar = CartItems;
-    if (arr2.length == 0) {
+    if (arr2.length === 0) {
       Cartvar.push(arr);
     }
 
@@ -33,7 +33,7 @@ function Ekartdisplay(props) {
     var arr2 = wishlistitem.filter((content) => content[0].id === e);
     arr.qty = 1;
     var Cartvar = wishlistitem;
-    if (arr2.length == 0) {
+    if (arr2.length === 0) {
       Cartvar.push(arr);
     }
 
