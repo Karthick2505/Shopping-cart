@@ -1,6 +1,6 @@
 # Ekart
 
-![Ekart](https://drive.google.com/file/d/1QT8xYmjAh95SLSi__N92PRGLMIDW1C6h/view?usp=drive_link)
+![Ekart]([https://drive.google.com/file/d/1QT8xYmjAh95SLSi__N92PRGLMIDW1C6h/view?usp=drive_link](https://i.ibb.co/Dz5YrBz/login.png))
 
 ## Introduction
 This is a code repository for the corresponding video tutorial - https://youtube.com/playlist?list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu.
