@@ -1,14 +1,11 @@
 # Ekart
 
-<<<<<<< HEAD
+
 ![Login page](https://i.ibb.co/Dz5YrBz/login.png)
 ![Signup page](https://i.ibb.co/YjDyrGk/signup.png)
 ![Products page](https://i.ibb.co/RNPr9yZ/products.png)
 ![Addtocart page](https://i.ibb.co/qm18Krk/Cart.png)
 ![Wishlist page](https://i.ibb.co/9h8th10/Wishlist.png)
-=======
-![Ekart](https://i.ibb.co/Dz5YrBz/login.png)
->>>>>>> 3da0c25f614ecdef0c2595944cf0b6aed57d5853
 
 ## Introduction
 Using React, Node.js, Express & MongoDB you'll learn how to build a Full Stack MERN Application - from start to finish. The App is called "Ekart" and it is a simple ecommers app that allows users to see products,buy them.
