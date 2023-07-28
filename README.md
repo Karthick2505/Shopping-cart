@@ -1,6 +1,6 @@
 # Ekart
 
-![Ekart](https://i.ibb.co/Z8Y0CJv/Screenshot-2020-10-30-at-11-10-04.png)
+![Ekart](https://drive.google.com/file/d/1QT8xYmjAh95SLSi__N92PRGLMIDW1C6h/view?usp=drive_link)
 
 ## Introduction
 This is a code repository for the corresponding video tutorial - https://youtube.com/playlist?list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu.
@@ -12,4 +12,9 @@ By the end of this video, you will have a strong understanding of how the MERN S
 ## Launch your development career with project-based coaching - https://www.jsmastery.pro
 
 Setup:
-- run ```npm i && npm start``` for both client and server side to start the app
+- run ```npm start``` to start the Ekart app.
+- Intially register using signup page.
+- login into the page using username and password.
+- Add item to cart by clicking `Add to cart`.
+- Add to wishlist by clicking the Wishlist icon.
+- See the user details by clicking the user icon.
