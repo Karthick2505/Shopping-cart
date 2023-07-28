@@ -1,13 +1,14 @@
 # Ekart
 
-![Ekart](https://drive.google.com/file/d/1QT8xYmjAh95SLSi__N92PRGLMIDW1C6h/view?usp=drive_link)
+![Login page](https://i.ibb.co/Dz5YrBz/login.png)
+![Signup page](https://i.ibb.co/YjDyrGk/signup.png)
+![Products page](https://i.ibb.co/RNPr9yZ/products.png)
+![Addtocart page](https://i.ibb.co/qm18Krk/Cart.png)
+![Wishlist page](https://i.ibb.co/9h8th10/Wishlist.png)
 
 ## Introduction
-This is a code repository for the corresponding video tutorial - https://youtube.com/playlist?list=PL6QREj8te1P7VSwhrMf3D3Xt4V6_SRkhu.
+Using React, Node.js, Express & MongoDB you'll learn how to build a Full Stack MERN Application - from start to finish. The App is called "Ekart" and it is a simple ecommers app that allows users to see products,buy them.
 
-Using React, Node.js, Express & MongoDB you'll learn how to build a Full Stack MERN Application - from start to finish. The App is called "Memories" and it is a simple social media app that allows users to post interesting events that happened in their lives.
-
-By the end of this video, you will have a strong understanding of how the MERN Stack works.
 
 ## Launch your development career with project-based coaching - https://www.jsmastery.pro
 
