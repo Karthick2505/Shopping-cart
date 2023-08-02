@@ -42,7 +42,7 @@
       "last 1 firefox version",
       "last 1 safari version"
     ],
-    "homepage": "https://github.com/Karthick2505"
+    "homepage": "http://github.com/Karthick2505/Shopping-cart"
   },
   "devDependencies": {
     "gh-pages": "^5.0.0"
