@@ -1,3 +1,7 @@
+
+
+
+
 .col-sm .pic-1 {
   opacity: 1;
   transition: all .5s ease-out 0s
@@ -263,7 +267,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  column-gap: 2rem;
   height: 90px;
   padding: 1.2rem 3rem;
   background-color: #2974f1;
@@ -312,12 +315,10 @@ a {
 
 .search input {
   background-color: var(--ash);
-  border: none;
   border-radius: 6px;
   padding: 0.7rem;
-  padding-left: 2.4rem;
+  padding-left: 20px;
   font-size: 16px;
-  width: 600px;
   border: var(--border);
   margin-right: 50px;
 }
@@ -599,4 +600,58 @@ label {
 .sweetPagination .paginationUL .pageItem .activeButton {
   color: #f1f2f6;
   background-color: #2974f1 !important;
+}
+
+
+@media only screen and (max-width: 426px) {
+  /* For mobile phones: */
+  .navbar-brand img{
+    scale: 70%;
+  }
+  .navbar{
+    padding: 10px !important;
+  }
+  .search input {
+   display: none;
+  }
+  .logo h2{
+    display: none;
+  }
+  .logo {
+    margin-right: 0;
+  }
+  .navbar-brand {
+    margin-right: 0 !important;
+  }
+  .right-container a{
+    scale: 80%;
+  }
+  .shopping-cart .text-center {
+    scale: 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar {
+    padding: 20px !important;
+  }
+  .logo h2{
+    display: none;
+  }
+   .logo {
+    margin-right: 0;
+  }
+  .navbar-brand {
+    margin-right: 0 !important;
+  }
+  .right-container a{
+    scale: 80%;
+  }
+  .shopping-cart .text-center {
+    scale: 50%;
+  }
+  
+}
+
+@media only screen and (max-width: 1025px) {
 }

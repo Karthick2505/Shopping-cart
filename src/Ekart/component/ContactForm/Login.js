@@ -57,6 +57,7 @@ function ContactForm(props) {
     const handleSubmit = event => {
         event.preventDefault(); // 👈️ prevent page refresh
         // console.log(` ${email} ${password} `);
+        // eslint-disable-next-line
         arr.map((val) => {
             if (val.email === email && val.password === password) {
                 props.updateloginstatus(true)
