@@ -70,15 +70,12 @@
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: none;
-  -webkit-box-shadow: 0 1px 0 0 #ffffff;
-  box-shadow: 0 1px 0 0 #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.549);
   margin-right: 10px;
 }
 
 .auth-form__input.focus {
-  -webkit-box-shadow: 0 2px 0 0 #bbb;
-  box-shadow: 0 2px 0 0 #bbb;
+  border-bottom: 1px solid white;
 }
 
 .auth-form__toggler,
@@ -187,7 +184,17 @@
 }
 
 
+@media only screen and (max-width: 426px) {
+.modal__window{
+  scale: 75% !important;
+}
+.name{
+  display: block;
+}
+}
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
-  
+  .modal__window{
+    scale: 90%;
+  }
 }

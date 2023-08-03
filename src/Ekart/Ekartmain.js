@@ -93,7 +93,7 @@ function Ekartmain() {
         <div class="navbar" >
           <div class="nav-start">
             <a class="logo">
-              <Link to={loggedin ? '/products' :'/'} className="navbar-brand d-flex" >
+              <Link to={loggedin ? '/products' :'/Shopping-cart'} className="navbar-brand d-flex" >
                 <img src="https://img.freepik.com/premium-vector/online-shopping-logo-design-template-digital-shopping-logo-mouse-cursor-cart-concepts_502185-286.jpg" height="50" className="float-left" alt="" />
                 <h2>SHOPPING</h2>
               </Link>
@@ -107,7 +107,7 @@ function Ekartmain() {
               <Link to="/cart"><HiShoppingCart  color='white' size={35} /><span className="badge badge-warning float-right " >{cartcount>0 ? cartcount : ''}</span></Link>
               <Link to="/wishlist"><AiFillShopping color='white' size={35} /><span className="badge badge-warning float-right " >{whishlistcount>0 ? whishlistcount : ''}</span></Link>
               
-              <Link to={loggedin ? '/user' :'/'}><button class="btn btn-light profileicon">{ loggedin ? <BsPersonCheckFill size={25} />  : <BsFillPersonPlusFill size={25}/>}</button></Link>
+              <Link to={loggedin ? '/user' :'/Shopping-cart'}><button class="btn btn-light profileicon">{ loggedin ? <BsPersonCheckFill size={25} />  : <BsFillPersonPlusFill size={25}/>}</button></Link>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ function Ekartmain() {
           <Route  path='/cart' element={< AddToCart changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
           <Route  path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} cartelement={cartelement}  wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route  path='/signup' element={<SignUp userdata={userdata} updateuserdata={updateuserdata}/>}></Route>
-          <Route  path='/' element={<ContactForm updatelogindetails={updatelogindetails}  loggedin={loggedin} updateloginstatus={updateloginstatus} userdata={userdata}/>}></Route>
+          <Route  path='/Shopping-cart' element={<ContactForm updatelogindetails={updatelogindetails}  loggedin={loggedin} updateloginstatus={updateloginstatus} userdata={userdata}/>}></Route>
           <Route  path='/user' element={<Userprofile changecartcount={changecartcount}  cartelements={cartelements} changewhishlistcount={changewhishlistcount}wishlistelements={wishlistelements} updateloginstatus={updateloginstatus} updatelogindetails={updatelogindetails} logindetails={logindetails} cartcount={cartcount} whishlistcount={whishlistcount}/>}></Route>
         
         </Routes>

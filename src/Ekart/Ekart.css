@@ -55,10 +55,6 @@
   }
 }
 
-.row {
-  width: 100%;
-}
-
 .height {
   height: 200px;
 }
@@ -355,7 +351,7 @@ a {
 }
 
 .single-product .part-1 img {
-  width: 261px;
+  width: -webkit-fill-available;
   height: 283px;
   display: block;
   border-radius: 20px;
@@ -629,6 +625,18 @@ label {
   .shopping-cart .text-center {
     scale: 50%;
   }
+  .gt {
+    display: none;
+  }
+  div.content {
+    margin-left: 0;
+    padding: 1px 10px;
+}
+.single-product{
+  scale: 90%;
+  margin-bottom: 0;
+}
+  
 }
 
 @media only screen and (max-width: 768px) {

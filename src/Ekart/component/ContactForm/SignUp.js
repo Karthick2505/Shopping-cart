@@ -67,14 +67,15 @@ function SignUp(props) {
     const handleSubmit = event => {
         event.preventDefault(); // 👈️ prevent page refresh
         // eslint-disable-next-line
-        const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        // const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        const validEmail = "a";
         // console.log(` ${firstName} ${lastName} ${email} ${password} ${repassword}`);
 
         if (email.match(validEmail) && password === repassword) {
             arr.push(new person(firstName, lastName, email, password))
             console.log(arr)
             props.updateuserdata(arr)
-            navigate('/')
+            navigate('/Shopping-cart')
         } else {
 
             // 👇️ clear all input values in the form
@@ -119,7 +120,7 @@ function SignUp(props) {
     // }
 
     const open = () => {
-        navigate('/')
+        navigate('/Shopping-cart')
     };
 
     const Signup = (
