@@ -629,13 +629,14 @@ label {
     display: none;
   }
   div.content {
-    margin-left: 0;
+    margin-left: 0 !important;
     padding: 1px 10px;
 }
 .single-product{
   scale: 90%;
   margin-bottom: 0;
 }
+
   
 }
 
@@ -658,6 +659,12 @@ label {
   .shopping-cart .text-center {
     scale: 50%;
   }
+  .sidebar{
+    width: 150px !important;
+  }
+  div.content {
+    margin-left: 150px;
+}
   
 }
 

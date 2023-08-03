@@ -57,7 +57,7 @@ function Addtowhislist(props) {
                                 return (<>
 
                                     {/* Single Product */}
-                                    <div class=" col-lg-4 col-xl-3 ">
+                                    <div class=" col-lg-4 col-xl-3 col-sm-4">
                                         <div id="product-2" class="single-product" >
                                             <div class="part-1" >
                                                 <img src={val[0].thumbnail}></img>

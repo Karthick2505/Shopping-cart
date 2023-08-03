@@ -67,8 +67,7 @@ function SignUp(props) {
     const handleSubmit = event => {
         event.preventDefault(); // 👈️ prevent page refresh
         // eslint-disable-next-line
-        // const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        const validEmail = "a";
+        const validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         // console.log(` ${firstName} ${lastName} ${email} ${password} ${repassword}`);
 
         if (email.match(validEmail) && password === repassword) {

@@ -16,6 +16,7 @@ import SignUp from "./component/ContactForm/SignUp";
 import ContactForm from './component/ContactForm/Login'
 import Addtowhislist from './component/Addtowishlist';
 import Userprofile from './component/Userprofile/User-profile';
+import Badge from '@mui/material/Badge';
 
 
 function Ekartmain() {
@@ -104,9 +105,10 @@ function Ekartmain() {
               <form class="search" role="search" onSubmit={submit}>
                 <input value={value} type="text" placeholder="Search" onChange={changeinInput} />
               </form>
-              <Link to="/cart"><HiShoppingCart  color='white' size={35} /><span className="badge badge-warning float-right " >{cartcount>0 ? cartcount : ''}</span></Link>
-              <Link to="/wishlist"><AiFillShopping color='white' size={35} /><span className="badge badge-warning float-right " >{whishlistcount>0 ? whishlistcount : ''}</span></Link>
-              
+              {/* <Link to="/cart"><HiShoppingCart  color='white' size={35} /><span className="badge badge-warning float-right " >{cartcount>0 ? cartcount : ''}</span></Link> */}
+              <Link to="/cart"><Badge badgeContent={cartcount >0 ? cartcount : ''} color="error"><HiShoppingCart  color='white' size={35} /></Badge></Link>
+              <Link to="/wishlist"><Badge badgeContent={whishlistcount>0 ? whishlistcount : ''} color="error"><AiFillShopping color='white' size={35} /></Badge></Link>
+              {/* <Link to="/wishlist"><AiFillShopping color='white' size={35} /><span className="badge badge-warning float-right " >{whishlistcount>0 ? whishlistcount : ''}</span></Link> */}
               <Link to={loggedin ? '/user' :'/Shopping-cart'}><button class="btn btn-light profileicon">{ loggedin ? <BsPersonCheckFill size={25} />  : <BsFillPersonPlusFill size={25}/>}</button></Link>
             </div>
           </div>
