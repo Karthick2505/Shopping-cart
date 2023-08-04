@@ -126,6 +126,7 @@ function Ekartdisplay(props) {
               getData={products}
               navigation={true}
             />
+            
           </div>
         ) : (
           <div class="text-center mt-4">

@@ -253,7 +253,14 @@ a {
 .logo {
   margin-right: 1.5rem;
 }
-
+.logomb{
+  display:none;
+}
+.logodx{
+  display:block;
+  scale: 55%;
+      margin-left: -20px;
+}
 #nav-menu {
   border-bottom: var(--border);
 }
@@ -262,6 +269,7 @@ a {
   width: 100%;
   display: flex;
   align-items: center;
+  align-content: center;
   justify-content: space-between;
   height: 90px;
   padding: 1.2rem 3rem;
@@ -601,11 +609,18 @@ label {
 
 @media only screen and (max-width: 426px) {
   /* For mobile phones: */
+  .logo .logomb{
+    display:block ;
+  }
+  .logo .logodx{
+    display:none;
+  }
   .navbar-brand img{
     scale: 70%;
   }
   .navbar{
     padding: 10px !important;
+    
   }
   .search input {
    display: none;
@@ -624,6 +639,9 @@ label {
   }
   .shopping-cart .text-center {
     scale: 50%;
+  }
+  .text-center img{
+    margin-left: -50px;
   }
   .gt {
     display: none;
@@ -657,7 +675,7 @@ label {
     scale: 80%;
   }
   .shopping-cart .text-center {
-    scale: 50%;
+    scale: 60%;
   }
   .sidebar{
     width: 150px !important;

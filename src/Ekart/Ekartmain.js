@@ -2,13 +2,14 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
+// Icon Import ------
 import { HiShoppingCart } from 'react-icons/hi';
 import { AiFillShopping} from 'react-icons/ai';
 import { BsFillPersonPlusFill,BsPersonCheckFill} from 'react-icons/bs';
 
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
+// File Import ------
 import Ekartdisplay from "./component/Ekartdisplay"
 import AddToCart from './component/Addtocart';
 import "./Ekart.css";
@@ -16,7 +17,13 @@ import SignUp from "./component/ContactForm/SignUp";
 import ContactForm from './component/ContactForm/Login'
 import Addtowhislist from './component/Addtowishlist';
 import Userprofile from './component/Userprofile/User-profile';
+
+// material UI ------
 import Badge from '@mui/material/Badge';
+
+// Images ----- 
+import logomobile from '../ekart images/ekart-website-favicon-white.png';
+import logo from '../ekart images/ekart-high-resolution-logo-white-on-transparent-background.png';
 
 
 function Ekartmain() {
@@ -95,8 +102,8 @@ function Ekartmain() {
           <div class="nav-start">
             <a class="logo">
               <Link to={loggedin ? '/products' :'/Shopping-cart'} className="navbar-brand d-flex" >
-                <img src="https://img.freepik.com/premium-vector/online-shopping-logo-design-template-digital-shopping-logo-mouse-cursor-cart-concepts_502185-286.jpg" height="50" className="float-left" alt="" />
-                <h2>SHOPPING</h2>
+                <img src={logomobile} height="50" className="float-left logomb" alt="" />
+                <img src={logo} height="50" className="float-left logodx" alt="" />              
               </Link>
             </a>
           </div>
@@ -106,8 +113,8 @@ function Ekartmain() {
                 <input value={value} type="text" placeholder="Search" onChange={changeinInput} />
               </form>
               {/* <Link to="/cart"><HiShoppingCart  color='white' size={35} /><span className="badge badge-warning float-right " >{cartcount>0 ? cartcount : ''}</span></Link> */}
-              <Link to="/cart"><Badge badgeContent={cartcount >0 ? cartcount : ''} color="error"><HiShoppingCart  color='white' size={35} /></Badge></Link>
-              <Link to="/wishlist"><Badge badgeContent={whishlistcount>0 ? whishlistcount : ''} color="error"><AiFillShopping color='white' size={35} /></Badge></Link>
+              <Link to="/cart"><Badge badgeContent={cartcount}  invisible={cartcount >0 ? '' : false} color="error"><HiShoppingCart  color='white' size={35} /></Badge></Link>
+              <Link to="/wishlist"><Badge badgeContent={whishlistcount}   invisible={whishlistcount>0 ? '' : false} color="error"><AiFillShopping color='white' size={35} /></Badge></Link>
               {/* <Link to="/wishlist"><AiFillShopping color='white' size={35} /><span className="badge badge-warning float-right " >{whishlistcount>0 ? whishlistcount : ''}</span></Link> */}
               <Link to={loggedin ? '/user' :'/Shopping-cart'}><button class="btn btn-light profileicon">{ loggedin ? <BsPersonCheckFill size={25} />  : <BsFillPersonPlusFill size={25}/>}</button></Link>
             </div>
