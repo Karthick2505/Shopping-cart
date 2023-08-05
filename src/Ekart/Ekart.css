@@ -127,7 +127,7 @@
 .sidebar {
   margin: 0;
   padding: 0;
-  width: 200px;
+  width: 15%;
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
@@ -160,9 +160,9 @@
 }
 
 div.content {
-  margin-left: 200px;
+  margin-left: 15%;
   padding: 1px 16px;
-
+  width: 85%;
 }
 
 .cartimg {
@@ -271,9 +271,12 @@ a {
   align-items: center;
   align-content: center;
   justify-content: space-between;
-  height: 90px;
+  height: 80px;
   padding: 1.2rem 3rem;
   background-color: #2974f1;
+}
+.css-4t3x6l-MuiPaper-root-MuiDrawer-paper {
+  margin-top: 65px;
 }
 
 
@@ -316,8 +319,7 @@ a {
 .right-container img {
   border-radius: 50%;
 }
-
-.search input {
+ .searchinput {
   background-color: var(--ash);
   border-radius: 6px;
   padding: 0.7rem;
@@ -584,8 +586,6 @@ label {
   
   font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
 }
-
-
 .checkout {
   float: right;
   border: 0;
@@ -605,10 +605,17 @@ label {
   color: #f1f2f6;
   background-color: #2974f1 !important;
 }
-
+.mobilesearch{
+  background-color: #05050556;
+  justify-content: space-between;
+}
+.mobilesearch Button{
+    display: none;
+}
 
 @media only screen and (max-width: 426px) {
   /* For mobile phones: */
+
   .logo .logomb{
     display:block ;
   }
@@ -620,10 +627,14 @@ label {
   }
   .navbar{
     padding: 10px !important;
-    
+    height: 65px !important;
   }
-  .search input {
+  .searchinput {
    display: none;
+   margin-right: 0 !important;
+  }
+  .mobilesearch Button{
+    display: block !important;
   }
   .logo h2{
     display: none;
@@ -649,6 +660,7 @@ label {
   div.content {
     margin-left: 0 !important;
     padding: 1px 10px;
+    width: 100% !important;
 }
 .single-product{
   scale: 90%;
@@ -678,10 +690,11 @@ label {
     scale: 60%;
   }
   .sidebar{
-    width: 150px !important;
+    width: 30% !important;
   }
   div.content {
-    margin-left: 150px;
+    margin-left: 30% ;
+    width:70%  ;
 }
   
 }

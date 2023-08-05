@@ -4,9 +4,17 @@
 import React from "react";
 import { useState } from "react";
 import SweetPagination from "sweetpagination";
-import { AiOutlineShareAlt } from "react-icons/ai";
+import { AiOutlineShareAlt,AiOutlineMenu} from "react-icons/ai";
 import { RiHeartAddFill } from "react-icons/ri";
 import { BiExpand } from "react-icons/bi";
+
+import Box from '@mui/material/Box';
+import Drawer from '@mui/material/Drawer';
+import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
 
 function Ekartdisplay(props) {
   const products = props.Content;
@@ -14,6 +22,34 @@ function Ekartdisplay(props) {
   var CartItems = props.cartelement;
   var wishlistitem = props.wishlistelement;
   const [count, setcount] = useState([]);
+
+  const [state, setState] = useState({
+    left: false
+  });
+
+  const toggleDrawer = (anchor, open) => (event) => {
+    setState({ ...state, [anchor]: open });
+  };
+
+  const list = () => (
+    <Box>
+      <List>
+        <ListItem>
+            <ListItemButton onClick={() => props.getserchcontent(' ')} >
+              <ListItemText primary={"All"} />
+            </ListItemButton>
+          </ListItem>
+        {categories.map((text) => (
+          <ListItem key={text}>
+            <ListItemButton onClick={() => props.changecategorie(text)} >
+              <ListItemText primary={text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+  
 
   const Addtocart = async (e) => {
     var arr = products.filter((products) => products.id === e);
@@ -43,22 +79,22 @@ function Ekartdisplay(props) {
 
   return (
     <div className="mt">
+      <div className="mobilesearch d-flex">
+        <Button onClick={toggleDrawer('left', true)}><AiOutlineMenu/></Button>
+        <Drawer open={state['left']} onClose={toggleDrawer('left', false)}>{list()}</Drawer>
+      </div>
+
       <div className="sidebar gt">
         <h1>Catageories</h1>
-        <a className="active" onClick={() => props.changecategorie(" ")}>
-          All
-        </a>
+        <a className="active" onClick={() => props.getserchcontent(' ')}>All</a>
         {categories.map((cat) => {
           return (
             <>
-              <a className="active" onClick={() => props.changecategorie(cat)}>
-                {cat}
-              </a>
+              <a className="active" onClick={() => props.changecategorie(cat)}>{cat}</a>
             </>
           );
         })}
       </div>
-
       <div className="content">
         {products.length > 0 ? (
           <div className="row">

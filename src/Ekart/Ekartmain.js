@@ -110,7 +110,7 @@ function Ekartmain() {
           <div class="nav-end">
             <div class="right-container">
               <form class="search" role="search" onSubmit={submit}>
-                <input value={value} type="text" placeholder="Search" onChange={changeinInput} />
+                <input value={value} type="text"  className="searchinput" placeholder="Search" onChange={changeinInput} />
               </form>
               {/* <Link to="/cart"><HiShoppingCart  color='white' size={35} /><span className="badge badge-warning float-right " >{cartcount>0 ? cartcount : ''}</span></Link> */}
               <Link to="/cart"><Badge badgeContent={cartcount}  invisible={cartcount >0 ? '' : false} color="error"><HiShoppingCart  color='white' size={35} /></Badge></Link>
@@ -121,7 +121,7 @@ function Ekartmain() {
           </div>
         </div>
         <Routes >
-          <Route exact path='/products' element={<Ekartdisplay Content={content} categories={categories} changecategorie={changecategorie} cartelements={cartelements} cartelement={cartelement} changecartcount={changecartcount} wishlistelements={wishlistelements} changewhishlistcount={changewhishlistcount} wishlistelement={wishlistelement}/>}></Route>
+          <Route exact path='/products' element={<Ekartdisplay Content={content} getserchcontent={getserchcontent} categories={categories} changecategorie={changecategorie} cartelements={cartelements} cartelement={cartelement} changecartcount={changecartcount} wishlistelements={wishlistelements} changewhishlistcount={changewhishlistcount} wishlistelement={wishlistelement}/>}></Route>
           <Route  path='/cart' element={< AddToCart changecartcount={changecartcount} cartelements={cartelements} cartelement={cartelement} />}></Route>
           <Route  path='/wishlist' element={< Addtowhislist changewhishlistcount={changewhishlistcount} wishlistelements={wishlistelements} cartelement={cartelement}  wishlistelement={wishlistelement} changecartcount={changecartcount} cartelements={cartelements}/>}></Route>
           <Route  path='/signup' element={<SignUp userdata={userdata} updateuserdata={updateuserdata}/>}></Route>
