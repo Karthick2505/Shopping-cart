@@ -540,12 +540,8 @@ label {
   color: #a0a0a0;
 }
 .product .product-removal .remove-product {
-  border: 0;
-  padding: 8px 15px;
-  background-color: rgb(252, 5, 5);
-  color: #fff;
-  font-size: 12px;
-  border-radius: 3px;
+  color: #ea1616;
+  font-size: 100%;
 }
 .product .product-removal .remove-product:hover {
   background-color: rgb(152, 47, 47);
@@ -554,7 +550,10 @@ label {
   background-color: #2974f1;
   color: white;
   border-radius: 5px;
-  margin: 0 20px;
+  scale: 50%;
+}
+.product .product-quantity h3{
+  align-self:center;
 }
 .product-quantity button:hover {
   background-color: #ffffff;
@@ -665,6 +664,9 @@ label {
 .single-product{
   scale: 90%;
   margin-bottom: 0;
+}
+.product .product-details .product-description{
+  display: none;
 }
 
   

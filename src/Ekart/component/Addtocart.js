@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useEffect } from 'react'
-import { AiFillPlusCircle, AiFillMinusCircle } from 'react-icons/ai';
+import { AiFillPlusCircle, AiFillMinusCircle,AiFillDelete} from 'react-icons/ai';
 
 
 function AddToCart(props) {
@@ -15,7 +15,7 @@ function AddToCart(props) {
     var shipping = 0;
 
     useEffect(() => {
-    }, [content]);
+    }, [content, totalMaster]);
 
     const remove = async (e) => {
         var elements = content
@@ -25,7 +25,17 @@ function AddToCart(props) {
 
         props.cartelements(elements)
         props.changecartcount(elements.length);
-        
+
+    }
+
+    const updateValues = () => {
+        // eslint-disable-next-line 
+        content.map((value) => {
+            var price = value[0].price;
+            totalProduct += value.qty;
+            totalPrice += price * value.qty;
+        });
+        settotalmaster({ "total_product": totalProduct, "total_price": totalPrice });
     }
 
     const increment = async (e) => {
@@ -49,21 +59,10 @@ function AddToCart(props) {
                 elements[i].qty = elements[i].qty - 1;
             }
         }
+        
         setcontent(elements)
         updateValues();
     }
-
-    const updateValues = () => {
-    // eslint-disable-next-line 
-        content.map((value) => {
-            var price = value[0].price;
-            totalProduct += value.qty;
-            totalPrice += price * value.qty;
-        });
-        settotalmaster({ "total_product": totalProduct, "total_price": totalPrice });
-    }
-
-
 
     return (
 
@@ -158,17 +157,15 @@ function AddToCart(props) {
                                                 <p class="product-description">{val[0].description}</p>
                                             </div>
                                             <div class="product-price col-2">RS:{val[0].price}</div>
-                                            <div class="product-quantity col-2">
-                                                <h3>{val.qty}</h3>
-                                                <div className='d-flex' >
-                                                    <button class="btn" onClick={() => increment(val[0].id)}><AiFillPlusCircle /></button>
-                                                    <button class="btn" disabled={val.qty === 1 && true} onClick={() => decrement(val[0].id)}><AiFillMinusCircle /></button>
+                                            <div class="product-quantity col-2 d-flex">
+                                                <h3 className='col-6'>{val.qty}</h3>
+                                                <div className='col-6' >
+                                                    <AiFillPlusCircle onClick={() => increment(val[0].id)} />
+                                                    <AiFillMinusCircle disabled={val.qty === 1 && true} onClick={() => decrement(val[0].id)}/>
                                                 </div>
                                             </div>
                                             <div class="product-removal col-2">
-                                                <button class="remove-product" onClick={() => remove(val[0].id)}>
-                                                    Remove
-                                                </button>
+                                                <AiFillDelete class="remove-product" onClick={() => remove(val[0].id)}/>
                                             </div>
                                             <div class="product-line-price col-1">{val[0].price * val.qty}</div>
                                         </div>
