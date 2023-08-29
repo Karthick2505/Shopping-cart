@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Shopping-cart/static/css/main.5ccc48d1.css",
+    "main.js": "/Shopping-cart/static/js/main.7226e75e.js",
+    "static/js/787.d2e1f9cc.chunk.js": "/Shopping-cart/static/js/787.d2e1f9cc.chunk.js",
+    "static/media/ekart-high-resolution-logo-white-on-transparent-background.png": "/Shopping-cart/static/media/ekart-high-resolution-logo-white-on-transparent-background.09691ff87508dfe70535.png",
+    "index.html": "/Shopping-cart/index.html",
+    "main.5ccc48d1.css.map": "/Shopping-cart/static/css/main.5ccc48d1.css.map",
+    "main.7226e75e.js.map": "/Shopping-cart/static/js/main.7226e75e.js.map",
+    "787.d2e1f9cc.chunk.js.map": "/Shopping-cart/static/js/787.d2e1f9cc.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ccc48d1.css",
+    "static/js/main.7226e75e.js"
+  ]
+}
